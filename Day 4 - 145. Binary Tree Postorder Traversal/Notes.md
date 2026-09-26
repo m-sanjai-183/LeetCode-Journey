@@ -10,10 +10,10 @@ Given the `root` of a binary tree, return the **postorder traversal** of its nod
 
 Postorder traversal follows:
 
-```text
 Left → Right → Root
 Easy Memory Trick
 POST → Root comes at the END
+
 🌳 Example
 
 Given:
@@ -31,6 +31,7 @@ Postorder traversal:
 Output:
 
 [3,2,1]
+
 💡 Approach
 
 We use recursion.
@@ -47,7 +48,9 @@ If root == null
 postorder(left)
 postorder(right)
 add root
+
 🔹 Base Condition
+
 if (root == null) {
     return;
 }
@@ -58,6 +61,7 @@ If the current node is null, there is no node to process.
 So we simply return.
 
 🔹 Recursive Calls
+
 1. Traverse Left
 postorder(root.left, list);
 
@@ -114,9 +118,13 @@ Return to 1.
 Add 1:
 
 [3,2,1]
+
 Final Output
+
 [3,2,1]
+
 💻 Important Java Code
+
 void postorder(TreeNode root, List<Integer> list) {
     if (root == null) {
         return;
@@ -126,7 +134,9 @@ void postorder(TreeNode root, List<Integer> list) {
     postorder(root.right, list);
     list.add(root.val);
 }
+
 📚 Java Concepts Used
+
 List<Integer>
 
 Stores the traversal result.
@@ -149,6 +159,7 @@ Recursion
 A method calls itself to process smaller parts of the tree.
 
 ⚡ Traversal Comparison
+
 Traversal	Order
 Preorder	Root → Left → Right
 Inorder	Left → Root → Right
@@ -157,7 +168,9 @@ Memory Trick
 PRE  → Root First
 IN   → Root Middle
 POST → Root Last
+
 ⏱️ Complexity
+
 Time Complexity
 O(n)
 
@@ -169,13 +182,16 @@ O(h)
 h is the height of the binary tree because recursion uses the call stack.
 
 🎯 Key Takeaways
+
 Postorder means Left → Right → Root.
 Use recursion to traverse the tree.
 Check root == null as the base condition.
 Visit the left subtree first.
 Visit the right subtree second.
 Add the root value last.
+
 ⭐ Remember
+
 POSTORDER
     ↓
 LEFT

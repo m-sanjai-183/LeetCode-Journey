@@ -1,31 +1,40 @@
-LeetCode 141 - Linked List Cycle
+LeetCode 141 — Linked List Cycle
 
-Problem
+📌 Problem
 
 Given the head of a linked list, determine whether the linked list contains a cycle.
 
-Return true if a cycle exists, otherwise return false.
+Return true if a cycle exists; otherwise, return false.
 
-Approach
+🧠 Approach
 
-Use Floyd's Cycle Detection Algorithm (Slow and Fast Pointers).
+Use Floyd's Cycle Detection Algorithm using Slow and Fast Pointers.
 
 slow moves one node at a time.
-
 fast moves two nodes at a time.
-
 If there is a cycle, slow and fast will eventually meet.
-
 If fast reaches null, there is no cycle.
 
-Complexity
+🔄 Basic Idea
+
+slow → 1 step
+fast → 2 steps
+
+If cycle exists:
+slow == fast → Cycle Found ✅
+
+If fast reaches null:
+No Cycle ❌
+
+⏱️ Complexity
 
 Time: O(n)
-
 Space: O(1)
 
-LeetCode
+🔗 LeetCode
 
 Problem: 141. Linked List Cycle
-
 Language: Java
+Topic: Linked List, Two Pointers, Cycle Detection
+
+⭐ Key Concept: Floyd's Cycle Detection Algorithm = Slow Pointer + Fast Pointer

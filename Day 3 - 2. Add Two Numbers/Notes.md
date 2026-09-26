@@ -1,11 +1,10 @@
-Notes - LeetCode 2: Add Two Numbers
+Notes — LeetCode 2: Add Two Numbers
 
 1. Main Idea
 
 The numbers are stored in reverse order, so we can add them from left to right just like normal column addition.
 
-Example:
-
+Example
 l1 = [2,4,3]  → 342
 l2 = [5,6,4]  → 465
 
@@ -13,22 +12,20 @@ l2 = [5,6,4]  → 465
 
 Answer = [7,0,8]
 
-2. Why carry is needed
+2. Why Carry Is Needed
 
 If the sum is greater than 9, we keep the last digit and carry the remaining value.
 
-Example:
-
+Example
 8 + 7 = 15
 
-digit  = 15 % 10 = 5
-carry  = 15 / 10 = 1
+digit = 15 % 10 = 5
+carry = 15 / 10 = 1
 
 So:
 
 carry = sum / 10;
 p.next = new ListNode(sum % 10);
-
 3. Dummy Node
 
 We create:
@@ -45,23 +42,19 @@ return d.next;
 We skip the dummy node.
 
 4. Loop Condition
-
+   
 while (l1 != null || l2 != null || carry != 0)
 
 Continue while:
 
 l1 still has nodes, OR
-
 l2 still has nodes, OR
-
 a carry is remaining.
 
-This also handles cases like:
+This also handles:
 
 [9,9] + [1] = [0,0,1]
-
 5. Adding the First List
-
 if (l1 != null) {
     sum += l1.val;
     l1 = l1.next;
@@ -70,29 +63,27 @@ if (l1 != null) {
 If l1 has a node:
 
 Add its value.
-
 Move l1 to the next node.
-
 6. Adding the Second List
-
 if (l2 != null) {
     sum += l2.val;
     l2 = l2.next;
 }
 
-Same process for l2.
+If l2 has a node:
 
+Add its value.
+Move l2 to the next node.
 7. Create Result Node
-
 p.next = new ListNode(sum % 10);
 p = p.next;
 
 sum % 10 gives the digit that should be stored in the current node.
 
-Then move p forward.
+Then p moves to the newly created node.
 
 8. Complete Logic
-
+   
 Start
   ↓
 Create dummy node
@@ -112,30 +103,31 @@ Move pointers
 Repeat
   ↓
 Return dummy.next
-
-9. Important Java Syntax
-
-Create a node
-
+10. Important Java Syntax
+Create a Node
 new ListNode(value)
 
 Creates a new linked-list node.
 
-Move to next node
-
+Move to Next Node
 l1 = l1.next;
 
-Get node value
+Moves l1 to the next node.
 
+Get Node Value
 l1.val
 
-Get last digit
+Gets the value stored in the node.
 
+Get Last Digit
 sum % 10
 
-Get carry
+Gets the last digit of sum.
 
+Get Carry
 sum / 10
+
+Gets the carry value.
 
 10. Complexity
 
@@ -146,6 +138,16 @@ Space : O(max(n, m))
 
 The algorithm visits each node once.
 
-11. Key Point to Remember
-
-Add digit → store sum % 10 → update carry = sum / 10 → move forward.
+11. 🔑 Key Point to Remember
+Add digit
+   ↓
+Store sum % 10
+   ↓
+Update carry = sum / 10
+   ↓
+Move forward
+   ↓
+Repeat
+⭐ Main Formula
+digit = sum % 10
+carry = sum / 10

@@ -6,9 +6,10 @@ Given the `root` of a binary tree, return the **postorder traversal** of its nod
 
 ### Traversal Order
 
-```text
 Left → Right → Root
+
 📝 Example 1
+
 Input
 root = [1,null,2,3]
 Output
@@ -30,6 +31,7 @@ Following Left → Right → Root:
 Therefore:
 
 [3,2,1]
+
 💡 Approach
 
 We solve the problem using recursion.
@@ -50,7 +52,9 @@ Traverse Right
 
     ↓
 Add Root
+
 💻 Java Solution
+
 class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
@@ -70,7 +74,9 @@ class Solution {
         list.add(root.val);
     }
 }
+
 ⏱️ Complexity
+
 Time Complexity: O(n)
 Space Complexity: O(h)
 
@@ -78,13 +84,16 @@ Where:
 
 n = number of nodes
 h = height of the binary tree
+
 🔑 Key Concept
+
 Postorder Traversal
 Left → Right → Root
 Easy Memory Trick
 Preorder  → Root → Left → Right
 Inorder   → Left → Root → Right
 Postorder → Left → Right → Root
+
 🎯 Key Takeaway
 
 In postorder traversal, the root node is processed last after completely traversing both the left and right subtrees.

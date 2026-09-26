@@ -1,39 +1,34 @@
-Notes - Linked List Cycle
+Notes — Linked List Cycle
 
-Main Idea
+🧠 Main Idea
 
 We use two pointers:
 
 slow → moves 1 step
 fast → moves 2 steps
 
-Why it works
+💡 Why It Works
 
 If the linked list has a cycle, the fast pointer will eventually catch the slow pointer.
 
 If there is no cycle, fast will reach null.
 
-Important Condition
+⚠️ Important Condition
 
 while (fast != null && fast.next != null)
 
-This prevents NullPointerException.
+This prevents a NullPointerException.
 
-Steps
+🔄 Steps
 
 Set slow = head.
-
 Set fast = head.
-
 Move slow by one step.
-
 Move fast by two steps.
-
 If slow == fast, return true.
-
 If the loop ends, return false.
 
-Example
+🧪 Example
 
 3 → 2 → 0 → -4
     ↑         ↓
@@ -41,15 +36,18 @@ Example
 
 The last node points back to 2, so a cycle exists.
 
-Output:
+Output
 
 true
-
-Complexity
+⏱️ Complexity
 
 Time  : O(n)
 Space : O(1)
+🔑 Key Concept
 
-Key Concept
+Floyd's Cycle Detection Algorithm = Slow + Fast Pointers 🐢🐇
 
-Floyd's Cycle Detection Algorithm = Slow + Fast pointers
+slow → 1 step
+fast → 2 steps
+
+If they meet → Cycle exists ✅

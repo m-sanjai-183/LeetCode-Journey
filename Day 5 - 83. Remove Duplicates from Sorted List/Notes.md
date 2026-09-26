@@ -1,4 +1,5 @@
 Notes — LeetCode 83: Remove Duplicates from Sorted List
+
 1. Problem Understanding
 
 We are given a sorted linked list.
@@ -6,10 +7,13 @@ We are given a sorted linked list.
 We need to remove duplicate values so that every value appears only once.
 
 Example
+
 Input:
+
 1 → 1 → 2 → 3 → 3
 
 Output:
+
 1 → 2 → 3
 2. Important Point
 
@@ -18,6 +22,7 @@ Because the linked list is sorted, duplicate values will always be next to each 
 So, we only need to compare:
 
 current node ↔ next node
+
 3. Logic
 
 Use a pointer:
@@ -32,14 +37,12 @@ If values are equal
 Remove the duplicate node:
 
 p.next = p.next.next;
-
-Example:
-
+Example
 1 → 1 → 2
 ↑   ↑
 p   duplicate
 
-After:
+After removing:
 
 1 → 2
 If values are different
@@ -47,7 +50,9 @@ If values are different
 Move to the next node:
 
 p = p.next;
+
 4. Algorithm
+   
 Start p at head.
 Check whether p and p.next exist.
 Compare their values.
@@ -57,7 +62,9 @@ Otherwise:
 Move p forward.
 Repeat until the end.
 Return head.
-5. Code
+
+6. Code
+   
 class Solution {
     public ListNode deleteDuplicates(ListNode head) {
         ListNode p = head;
@@ -72,13 +79,14 @@ class Solution {
         return head;
     }
 }
-6. Dry Run
+
+8. Dry Run
+
 Input
 1 → 1 → 2
 Step 1
 p = 1
 p.next = 1
-
 1 == 1
 
 Duplicate found.
@@ -91,14 +99,12 @@ List becomes:
 Step 2
 p = 1
 p.next = 2
-
 1 != 2
 
 Move forward:
 
 p = p.next;
 Step 3
-
 p.next == null
 
 Loop stops.
@@ -121,56 +127,64 @@ p.next.next
 Gets the node after the next node.
 
 p → p.next → p.next.next
-Removing a duplicate
+Removing a Duplicate
 p.next = p.next.next;
 
 This makes the current node point directly to the node after the duplicate.
 
 8. Edge Cases
-Empty list
+   
+Empty List
 []
 
 Return:
 
 []
-One node
+One Node
 [1]
 
 Return:
 
 [1]
-No duplicates
+No Duplicates
 [1,2,3]
 
 Return:
 
 [1,2,3]
-All duplicates
+All Duplicates
 [1,1,1,1]
 
 Return:
 
 [1]
+
 9. Complexity
-
-Time Complexity:
-
+Time Complexity
 O(n)
 
 Each node is processed at most a small number of times.
 
-Space Complexity:
-
+Space Complexity
 O(1)
 
 No extra data structure is used.
 
-10. Key Takeaway
+10. 🔑 Key Takeaway
 
-Sorted Linked List → duplicates are adjacent → compare current node with next node → skip duplicate using p.next = p.next.next.
-
-Remember this pattern:
+Sorted Linked List
+        ↓
+Duplicates are adjacent
+        ↓
+Compare current node with next node
+        ↓
+Skip duplicate
+        ↓
+p.next = p.next.next
+⭐ Remember This Pattern
 if (p.val == p.next.val)
     p.next = p.next.next;
 else
     p = p.next;
+
+Sorted Linked List → Compare → Skip Duplicate → Move Forward 🚀

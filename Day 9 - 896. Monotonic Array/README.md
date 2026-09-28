@@ -1,27 +1,27 @@
-# LeetCode 896 — Monotonic Array
+LeetCode 896 — Monotonic Array
 
-## 🧩 Problem
+🧩 Problem
 
-An array is **monotonic** if it is either:
+An array is monotonic if it is either:
 
-- Monotone Increasing
-- Monotone Decreasing
+Monotone Increasing
 
-Given an integer array `nums`, return `true` if the array is monotonic, otherwise return `false`.
+Monotone Decreasing
 
----
+Given an integer array nums, return true if the array is monotonic, otherwise return false.
 
-## 💡 Example
+💡 Examples
 
-### Example 1
+Example 1
 
-**Input:**
+Input:
 
 nums = [1,2,2,3]
 
 Output:
 
 true
+
 Example 2
 
 Input:
@@ -31,6 +31,7 @@ nums = [6,5,4,4]
 Output:
 
 true
+
 Example 3
 
 Input:
@@ -40,16 +41,17 @@ nums = [1,3,2]
 Output:
 
 false
+
 🧠 Approach
 
 We maintain two boolean variables:
 
 increasing → checks whether the array is increasing.
+
 decreasing → checks whether the array is decreasing.
 
-For every adjacent pair:
+For every adjacent pair nums[i] and nums[i + 1]:
 
-nums[i] and nums[i + 1]
 Increasing Check
 
 If:
@@ -61,6 +63,7 @@ the array cannot be increasing.
 So:
 
 increasing = false;
+
 Decreasing Check
 
 If:
@@ -91,7 +94,7 @@ Java ☕
 
 🎯 Key Learning
 
-A monotonic array can be:
+A monotonic array can move in only one direction:
 
 Increasing ↗️
 [1,2,2,3]
@@ -102,3 +105,11 @@ Decreasing ↘️
 [6,5,4,4]
 
 Equal adjacent values are allowed.
+
+🔗 LeetCode
+
+Problem: 896. Monotonic Array
+
+Platform: LeetCode
+
+⭐ Solved as part of my LeetCode Journey.
